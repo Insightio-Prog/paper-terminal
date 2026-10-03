@@ -1,0 +1,14 @@
+name = "paperterminal-demo-api"
+main = "worker.js"
+compatibility_date = "2025-01-01"
+
+# Shares the usage-counter KV namespace with the other demo APIs (keys are prefixed "pt:").
+# To use your own:  wrangler kv namespace create LIMITS  and paste the id below.
+kv_namespaces = [{ binding = "LIMITS", id = "e59fe91dfc814132b4b5b5aca0182b75" }]
+
+routes = [{ pattern = "paperterminal-demo-api.insightio.co.uk", custom_domain = true }]
+
+[vars]
+ALLOWED_ORIGINS = "https://paperterminal.insightio.co.uk"
+
+# Secret (do not put in this file):  wrangler secret put ANTHROPIC_API_KEY

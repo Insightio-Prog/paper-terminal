@@ -1,0 +1,124 @@
+@import 'tailwindcss';
+@import '@fontsource/geist-mono/400.css';
+@import '@fontsource/geist-mono/500.css';
+@import '@fontsource/geist/400.css';
+@import '@fontsource/geist/500.css';
+
+@theme {
+  --color-bg: var(--bg);
+  --color-bg-raised: var(--bg-raised);
+  --color-bg-inset: var(--bg-inset);
+  --color-border: var(--border);
+  --color-ink: var(--ink);
+  --color-ink-secondary: var(--ink-secondary);
+  --color-ink-faint: var(--ink-faint);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-income: var(--income);
+  --color-expense: var(--expense);
+  --color-warn: var(--warn);
+  --color-text: var(--ink);
+  --color-text-muted: var(--ink-secondary);
+
+  --font-mono: 'Geist Mono', ui-monospace, monospace;
+  --font-sans: 'Geist', system-ui, sans-serif;
+
+  --radius-sm: 2px;
+  --radius-DEFAULT: 2px;
+  --radius-md: 2px;
+  --radius-lg: 2px;
+  --radius-xl: 2px;
+  --radius-2xl: 2px;
+  --radius-3xl: 2px;
+  --radius-full: 2px;
+
+  --shadow-sm: none;
+  --shadow-DEFAULT: none;
+  --shadow-md: none;
+  --shadow-lg: none;
+  --shadow-xl: none;
+  --shadow-2xl: none;
+}
+
+/* ---------------------------------------------------------------
+   TERRACOTTA DOCTRINE (settled 21 Jul 2026)
+   --accent / --accent-ink are reserved for TWO meanings only:
+     1. Claude surfaces (anything marked with the ❯ glyph)
+     2. Urgent / overdue states
+   Terracotta must NOT indicate navigation selection, hover, or any
+   other general UI state. Selection is expressed structurally:
+   --bg-inset fill + full-strength --ink, against --ink-secondary
+   for unselected. Exception: :focus-visible keeps the terracotta
+   outline — focus is transient and accessibility-critical.
+   Selection states (nav rail, filter tabs) are neutral app-wide:
+   --ink for selected, --ink-secondary for unselected.
+   The ❯ glyph is never decorative — it identifies a Claude surface.
+   ADDENDUM 27 Jul 2026 — accessibility contrast fix: --accent
+   changed 21 Jul #D97757 → #C25A3A (brick; ~2.8:1 → ~4.0:1 on
+   ivory). Base --accent is non-text only (bars, rings, borders,
+   wash fills); any accent-coloured TEXT at any size must use
+   --accent-ink. --ink-secondary and --ink-faint also corrected
+   for contrast failures on this date.
+   --------------------------------------------------------------- */
+:root {
+  --bg: #faf9f5;
+  --bg-raised: #f0eee6;
+  --bg-inset: #e8e6dc;
+  --border: #d4d0c4;
+  --ink: #1f1e1d;
+  --ink-secondary: #68625d;
+  --ink-faint: #857e77;
+  --accent: #c25a3a;
+  --accent-ink: #953a1d;
+  --accent-wash: #f0e0d5;
+  --income: #5e7c5a;
+  --expense: #b5543b;
+  --warn: #c28f3c;
+  --text: #1f1e1d;
+  --text-muted: #6e6d66;
+  --command-bar-height: 56px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  border-color: var(--border);
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+body {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.font-prose {
+  font-family: var(--font-sans);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.border-hairline {
+  border-width: 1px;
+}
